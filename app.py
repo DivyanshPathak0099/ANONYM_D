@@ -4,23 +4,29 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from sqlalchemy import func
+from flask_migrate import Migrate
+
+
 
 # ---------------- Flask Config ----------------
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres_anonyms_user:6alR5DfpJ6dDxFxdj8wfznlqxq69xqx7@dpg-d2q5g4t6ubrc73d02c90-a.oregon-postgres.render.com/postgres_anonyms"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
 
 
 # Database setup
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Uploads
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), "static", "uploads")
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 # ---------------- Models ----------------
