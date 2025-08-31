@@ -11,6 +11,9 @@ from flask_migrate import Migrate
 # ---------------- Flask Config ----------------
 app = Flask(__name__)
 
+# Secret key set karna zaroori hai
+app.secret_key = os.environ.get("SECRET_KEY", "dev_secret_key")
+
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres_anonyms_user:6alR5DfpJ6dDxFxdj8wfznlqxq69xqx7@dpg-d2q5g4t6ubrc73d02c90-a.oregon-postgres.render.com/postgres_anonyms"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
