@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.main-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    backdrop-filter: blur(5px); /* Blurs the background */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-box {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content-box span {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.content-box span::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: white;
+    margin-top: 5px;
+}
+
+.content-box h1 {
+    color: rgb(225, 225, 229);
+    font-size: 48px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content-box p {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.content-box .back-button {
+    display: inline-block;
+    width: 120px;
+    padding: 10px;
+    background: red;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.content-box .back-button:hover {
+    background: blue;
+    transform: scale(1.1);
+}
+
+/* Scrollable Box Styling */
+.scroll-box {
+    width: 100%;          /* Full width of the parent container */
+    max-height: 400px;    /* Set maximum height to make it scrollable */
+    overflow-y: auto;     /* Enables vertical scrolling when content exceeds the box */
+    padding: 15px;        /* Padding inside the box */
+    
+
+    background-color: transparent; /* Make the background transparent */
+    margin-top: 30px;     /* Space above the scroll box */
+    border-radius: 10px;  /* Rounded corners for the box */
+}

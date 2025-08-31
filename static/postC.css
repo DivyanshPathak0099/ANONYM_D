@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+.nav {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.nav a:hover {
+    text-decoration: underline;
+}
+.main-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    display: flex;
+}
+.content-box {
+    flex: 0 0 100%;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content-box span {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.content-box h1 {
+    color: white;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 50px;
+}
+.post-form {
+    width: 60%;
+    background: rgba(16, 11, 11, 0.845);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+.post-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-label {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    width: 80%;
+}
+.post-form input[type="text"],
+.post-form textarea {
+    width: 80%;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 5px;
+    outline: none;
+}
+.post-form textarea {
+    height: 100px;
+}
+.image-label {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    width: 80%;
+}
+.post-form input[type="file"] {
+    width: 80%;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.post-form button {
+    width: 80%;
+    padding: 10px;
+    background: red;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.post-form button:hover {
+    background: blue;
+    transform: scale(1.1);
+}

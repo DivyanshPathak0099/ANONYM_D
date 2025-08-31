@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/loginC.css">
+</head>
+<body>
+    <img id="background" src="/static/project3.1.jpg" alt="Background">
+
+    <div class="nav">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+
+    <div class="main-box">
+        <div class="content-box">
+            <span>#ANONYM_D</span>
+            <h1>WELCOME!!</h1>
+            <p>"Feel free to share anything on our platform -</p>
+            <p>your content, your thoughts, your voice — completely anonymously."</p>
+        </div>
+
+<div class="signin-box">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p style="color:white;">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <label for="username" class="input-label">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password" class="input-label">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>

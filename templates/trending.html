@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending</title>
+    <link rel="stylesheet" href="/static/homeC.css">
+</head>
+
+<body>
+    <img id="background" src="/static/project3.1.jpg" alt="Background">
+
+    <div class="nav">
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="main-box">
+        <div class="content-box">
+            <h1>Trending Hashtags</h1>
+            <div class="posts-container">
+                {% for tag, count in hashtags %}
+                {% if tag %}
+                <a href="{{ url_for('hashtag_posts', tag=tag) }}">#{{ tag }} ({{ count }})</a><br>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

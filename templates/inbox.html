@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title>
+    <link rel="stylesheet" href="/static/inboxC.css">
+</head>
+<body>
+    <img id="background" src="/static/project3.1.jpg" alt="Background">
+
+    <div class="nav">
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="main-box">
+        <div class="content-box">
+            <h1>Inbox</h1>
+            <div class="scroll-box">
+                {% for post in posts %}
+                    <div class="post-wrapper">
+                        <span class="post-tag">#{{ post.tag }}</span>
+                        <div class="post-box">
+                            <p>{{ post.text }}</p>
+                            {% if post.image_filename %}
+                                <img src="/static/uploads/{{ post.image_filename }}" alt="Post Image">
+                            {% endif %}
+
+                            <!-- Comments section -->
+                            <div class="comment-section">
+                                <h3>Comments:</h3>
+                                {% for comment in post.comments %}
+                                    <div class="comment-box">
+                                        <p>{{ comment.text }}</p>
+                                    </div>
+                                {% endfor %}
+                                <form action="/comment/{{ post.id }}" method="post">
+                                    <input type="text" name="text" placeholder="Add comment" required>
+                                    <button type="submit">Comment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

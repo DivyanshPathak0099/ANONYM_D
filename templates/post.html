@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Page</title>
+    <link rel="stylesheet" href="/static/postC.css">
+</head>
+
+<body>
+    <img id="background" src="/static/project3.1.jpg" alt="Background">
+    <div class="nav">
+        <div class="nav">
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </div>
+    <div class="main-box">
+        <div class="content-box">
+            <span>#ANNOUM_d</span>
+            <h1>POST!!</h1>
+            <div class="post-form">
+                <form action="/post" method="post" enctype="multipart/form-data">
+                    <label for="tag" class="input-label">#</label>
+                    <input type="text" id="tag" name="tag" placeholder="Bhai # ke baad point LIKH  " required>
+                    <textarea id="text" name="text" placeholder="kuch bhi likh de kisi ko pata nhi lagega"
+                        required></textarea>
+                    <label for="image" class="image-label">SELECT IMAGE</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <button type="submit">POST</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts with #{{ tag }}</title>
+    <link rel="stylesheet" href="/static/hashtag_postsC.css">
+</head>
+<body>
+    <img id="background" src="/static/project3.1.jpg" alt="Background">
+    <div class="nav">
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/trending">Trending</a>
+        <a href="/inbox">Inbox</a>
+        <a href="/post">Create Post</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="main-box">
+        <div class="content-box">
+            <div class="fixed-header">
+                <span>#ANONYM_D</span>
+                <h1>Posts with #{{ tag }}</h1>
+                <div class="sub-nav">
+                    <a href="/home">POSTS</a>
+                    <a href="/our">OUR</a>
+                    <a href="/trending">TRENDING</a>
+                    <a href="/inbox">INBOX</a>
+                    <a href="/post">CREATE POST</a>
+                </div>
+                <hr>
+            </div>
+            <div class="posts-container">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flash-messages">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                {% for post in posts %}
+                    <div class="post-box">
+                        <div class="post-content">
+                            <p>{{ post.text }}</p>
+                            {% if post.image_filename %}
+                                <img src="/static/uploads/{{ post.image_filename }}" alt="Post Image">
+                            {% endif %}
+                            <p><small>Posted by: {{ post.author.username }}</small></p>
+                            <div class="like-section">
+                                <form action="/like/{{ post.id }}" method="post">
+                                    <button type="submit">Like ({{ post.likes | length }})</button>
+                                </form>
+                            </div>
+                            <div class="comment-section">
+                                {% for comment in post.comments %}
+                                    <p>{{ comment.text }}</p>
+                                {% endfor %}
+                                <form action="/comment/{{ post.id }}" method="post">
+                                    <input type="text" name="text" placeholder="Add comment" required>
+                                    <button type="submit">Comment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="flash-messages">
+                        <p>No posts found for this hashtag.</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
